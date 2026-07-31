@@ -697,16 +697,3 @@ body {
     .photo-gallery-row { grid-template-columns: 1fr; justify-items: center; }
     .photo-frame { max-width: 200px; }
 }
-
-/* Email Button - Matching LinkedIn Style */
-.cta-btn.email-btn {
-  background-color: var(--yellow); /* Match base button color */
-  color: var(--text-dark);         /* Black text before hover */
-  text-decoration: none;          /* Removes any underline */
-  font-size: 0.85rem;              /* Same font size as cta-btn */
-}
-
-.cta-btn.email-btn:hover {
-  background-color: var(--pink);   /* Turns pink on hover */
-  color: #ffffff;                  /* White text on hover */
-}
