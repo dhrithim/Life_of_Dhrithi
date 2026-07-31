@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            /* Padding gives room for card drop-shadows and rotated corners on the left/right/bottom */
+            padding: 10px 15px 40px 15px !important; 
+            overflow-x: hidden !important;
+            overflow-y: visible !important;
+            box-sizing: border-box;
+            background: transparent;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Unbounded', sans-serif; }
+
+        /* Custom sizing for tall/square group photos */
+
+        .photo-frame.portrait-frame {
+            max-width: 320px; /* Gives the frame enough width */
+            margin: 0 auto;
+        }
+
+        .full-group-img {
+            width: 100% !important;
+            height: auto !important; /* Overrides the fixed height constraint */
+            max-height: 400px !important; /* Lets the full height render */
+            object-fit: contain !important; /* Ensures no cropping occurs */
+        }
+
+    </style>
+</head>
+<body style="background: transparent; padding: 10px;">
+    <div class="section-container">
+        <!-- Main Section Title -->
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2>NJIT</h2>
+        </div>
+        
+        <!-- Summary Section at the Top -->
+        <div class="scrapbook-card card-flex rotated-left card-purple" style="margin-bottom: 2.5rem;">
+            <div>
+                <h3>Academics & Campus Life</h3>
+                <span class="meta">Business & Information Systems</span>
+                <p>I am a rising Junior at NJIT with a major in Business & Information Systems and a minor in Artificial Intelligence. 
+                    I am passionate about analyzing data to improve decision-making processesand protect company systems. 
+                    In the future, I plan to continue my journey of learning and professional growth in the field of business analytics. 
+                    Throughout my time at NJIT, I have been extremely grateful to the amazing friends that I have made along the way and
+                    who have supported me endlessly.</p>
+            </div>
+            <div class="photo-gallery-row">
+                <div class="photo-frame portrait-frame" style="transform: rotate(-3deg);">
+                    <img src="njit1.jpg" alt="NJIT Group Photo" class="full-group-img">
+                </div>
+                <div class="photo-frame portrait-frame" style="transform: rotate(3deg);">
+                    <img src="njit2.jpg" alt="NJIT Photo #2" class="full-group-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- Freshman & Sophomore Year Grid -->
+        <div class="grid-layout">
+            <!-- Freshman Year Card -->
+            <div class="scrapbook-card rotated-right card-blue">
+                <h3>Freshman Year (2024-2025)</h3>
+                <span class="meta">Foundations & Growth</span>
+                <p>Transitioning to college and living on campus was a huge leap out of my comfort zone. 
+                    However, stepping into the unfamiliar environment of NJIT allowed me to learn how to adapt and eventually, thrive. 
+                    Through balancing a heavy course load and campus involvement, 
+                    I grew into a more confident individual, learning to advocate for myself and manage my priorities effectively.</p>
+                <div class="photo-frame" style="margin-top: 1.5rem; transform: rotate(2deg);">
+                    <img src="njit33.JPEG" alt="Freshman Year Memory" style="object-fit: cover; width: 100%; height: 240px;">
+                </div>
+            </div>
+
+            <!-- Sophomore Year Card -->
+            <div class="scrapbook-card rotated-left card-orange">
+                <h3>Sophomore Year (2025-2026)</h3>
+                <span class="meta">Leadership & Deep Dives</span>
+                <p>Sophomore year, I immediately jumped into new campus responsibilities - continuing as NJIT Theatre's Sound Board 
+                    Operator, taking on a new role as A2 Audio Assistant for NJIT’s Theatre Department, 
+                    and stepping up as Director of Philanthropy for Alpha Sigma Tau. 
+                    Each position I took on significantly expanded my leadership skills and ability to learn quickly. 
+                    At the same time, I leaned into my major through hands-on coursework and decided to challenge myself further 
+                    by adding a minor in Artificial Intelligence.
+                </p>
+                <div class="photo-frame" style="margin-top: 1.5rem; transform: rotate(-3deg);">
+                    <img src="njit4444.jpg" alt="Sophomore Year Memory">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<html lang="en">
+
+<!-- Website Icon & Name-->
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhrithi Mogilisetty</title>
+
+    <!-- Favicon / Tab Icon -->
+    <link rel="icon" type="image/png" href="heart.png"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=DynaPuff:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Song Audio -->
+    <audio id="bg-track" src="Gracie Abrams - Look at My Life.mp3"></audio>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo">Dhrithi Mogilisetty</div>
+            <span class="logo-subtitle">Junior at NJIT</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#njit">NJIT</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#impact">Volunteering</a></li>
+            <li><a href="#endurance">Races</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+
+                <!-- Title & Subtitle-->
+                <h1>Hello, I'm Dhrithi!</h1>
+                <div class="subtitle">Oh Well, Look at my Life!</div>
+                
+                <!-- Music Player -->
+                <div class="audio-player">
+                    <img src="GracieAlbumPic.png" class="album-art" alt="Look at My Life Album Cover">
+                    <div class="player-controls">
+                        <div class="track-title">Look at My Life</div>
+                        <div class="track-artist">Gracie Abrams</div>
+                        <div class="progress-block">
+                            <span class="timestamp" id="current-time">0:00</span>
+                            <div class="timeline" id="timeline-click">
+                                <div class="progress-bar" id="track-progress"></div>
+                            </div>
+                            <span class="timestamp">3:12</span>
+                        </div>
+                    </div>
+                    <button class="play-btn" id="audio-toggle" aria-label="Play or Pause track">▶</button>
+                </div>
+
+                <!-- Flip Through Button -->
+                <a href="#njit" class="cta-btn">Flip Through ↓</a>
+            </div>
+            
+            <!-- Profile Pictures -->
+            <div class="hero-graphic-stack">
+                <div class="sticker sticker-1">
+                    <img src="ProfilePic2.jpg" alt="Dhrithi Portrait">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NJIT Section -->
+    <section id="njit" class="content-section">
+        <object data="njit.html" type="text/html" class="embedded-page"></object>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="content-section">
+        <object data="experience.html" type="text/html" class="embedded-page"></object>
+    </section>
+
+    <!-- Volunteering Section -->
+    <section id="impact" class="content-section">
+        <object data="impact.html" type="text/html" class="embedded-page"></object>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section id="endurance" class="content-section">
+        <object data="endurance.html" type="text/html" class="embedded-page"></object>
+    </section>
+
+    <!-- Footer Section with Links -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h4>Dhrithi Mogilisetty</h4>
+                <p>NJIT Student | Business & Information Systems</p>
+            </div>
+            
+            <div class="footer-col">
+                <h5>Explore</h5>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#njit">NJIT</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#endurance">Races</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:dhrithimogilisetty@gmail.com">Email Me</a></li>
+                    <li><a href="https://www.linkedin.com/in/dhrithi-mogilisetty" target="_blank">LinkedIn Profile</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Resume</h5>
+                <ul>
+                    <li><a href="Mogilisetty_Resume.pdf" download>Download PDF ↓</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Made with love by Dhrithi Mogilisetty | 2026</p>
+        </div>
+    </footer>
+
+    <!-- Audio Script -->
+    <script>
+        const audio = document.querySelector('audio');
+        const playBtn = document.querySelector('.play-btn');
+        const progressBar = document.querySelector('.progress-bar');
+        const timestamp = document.querySelector('.timestamp');
+        const timeline = document.querySelector('.timeline');
+
+        // Helper function to format seconds into MM:SS cleanly
+        function formatTime(seconds) {
+            const totalSecs = Math.round(seconds);
+            const mins = Math.floor(totalSecs / 60);
+            const secs = totalSecs % 60;
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // 1. Update timestamp and progress bar during playback
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progressPercent}%`;
+
+                // If we are within 0.5 seconds of the end, force display of the full duration (3:12)
+                if (audio.duration - audio.currentTime < 0.5) {
+                    timestamp.textContent = formatTime(audio.duration);
+                } else {
+                    timestamp.textContent = formatTime(audio.currentTime);
+                }
+            }
+        });
+
+        // 2. Click timeline to skip ahead/rewind
+        timeline.addEventListener('click', (e) => {
+            if (audio.duration) {
+                const timelineWidth = timeline.clientWidth;
+                const clickX = e.offsetX;
+                audio.currentTime = (clickX / timelineWidth) * audio.duration;
+            }
+        });
+
+        // 3. Automatically reset when the song finishes
+        audio.addEventListener('ended', () => {
+            audio.currentTime = 0;             // Reset track position
+            progressBar.style.width = '0%';    // Reset progress bar
+            timestamp.textContent = '0:00';    // Reset timestamp text
+            playBtn.textContent = '▶';         // Switch icon back to Play (triangle)
+        });
+
+        // 4. Play / Pause Button Toggle Logic
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playBtn.textContent = '❚❚';    // Switch to Pause (two lines)
+            } else {
+                audio.pause();
+                playBtn.textContent = '▶';     // Switch to Play (triangle)
+            }
+        });
+    </script>
+</body>
