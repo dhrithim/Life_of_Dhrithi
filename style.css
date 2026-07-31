@@ -1,0 +1,699 @@
+/* Global Style Variables & Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Fonts */
+    --font-global: 'Unbounded', sans-serif;
+
+    /* Base Palette */
+    --bg-main: #fffd92; 
+    --bg-card: #82ff91; 
+    --yellow: #ff97e2;  
+    --pink: #FF87B2;    
+    --text-dark: #1A1A1A;
+
+    /* REQUIRED 3-COLOR PASTEL VARIABLES (RESTORED) */
+    --pastel-purple: #e8d7ff; /* Soft Pastel Purple */
+    --pastel-blue: #d4eaf7;   /* Soft Pastel Blue */
+    --light-orange: #ffe5b4;  /* Soft Light Orange / Peach */
+}
+
+/* Color Utility Classes */
+.card-purple { background-color: var(--pastel-purple) !important; }
+.card-blue   { background-color: var(--pastel-blue) !important; }
+.card-orange { background-color: var(--light-orange) !important; }
+
+
+/* --------------------------------------------------------------------------
+   GLOBAL STYLES & BACKGROUND
+   -------------------------------------------------------------------------- */
+html {
+    scroll-behavior: smooth;
+    font-family: var(--font-global);
+    color: var(--text-dark);
+    background-color: var(--bg-main);
+    font-size: clamp(11px, 1vw, 16px); 
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    background-color: var(--bg-main); /* Original yellow #fffd92 */
+    font-family: var(--font-global);
+    
+    /* Larger, spaced-out, transparent polka dots */
+    background-image: 
+        radial-gradient(rgba(255, 182, 193, 0.35) 15%, transparent 15%),
+        radial-gradient(rgba(255, 182, 193, 0.35) 15%, transparent 15%);
+    
+    /* Spacing and sizing for large dots */
+    background-position: 0 0, 70px 70px;
+    background-size: 140px 140px;
+    background-attachment: fixed;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1300px;
+    padding: 0.6rem 2rem;
+    background-color: var(--bg-card);
+    border: 3px solid var(--text-dark);
+    border-radius: 50px;
+    box-shadow: 5px 5px 0px var(--text-dark);
+    z-index: 1000;
+}
+
+/* Logo & Subtitle Container */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+}
+
+.logo-container .logo {
+    font-family: var(--font-global);
+    font-weight: 900;
+    font-size: clamp(0.95rem, 1.8vw, 1.25rem); 
+    color: var(--text-dark);
+    white-space: nowrap;
+}
+
+.logo-container .logo-subtitle {
+    font-family: var(--font-global);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+    background-color: var(--pink);
+    color: white;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 5% 60px 5%;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(2rem, 6vw, 6rem);
+    max-width: 1300px;
+    width: 100%;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-family: var(--font-global);
+    font-weight: 900;
+    font-size: clamp(2.2rem, 4.8vw, 4rem);
+    color: rgb(0, 0, 0);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-shadow: 4px 4px 0px #82ff91;
+}
+
+.hero-content .subtitle {
+    display: inline-block;
+    font-family: var(--font-global);
+    font-weight: 700;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    background-color: var(--yellow);
+    padding: 0.5rem 1rem;
+    border: 3px solid var(--text-dark);
+    border-radius: 12px;
+    transform: rotate(-1deg);
+    margin-bottom: 1.5rem;
+    box-shadow: 3px 3px 0px var(--text-dark);
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--pink);
+    color: white;
+    font-family: var(--font-global);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: 3px solid var(--text-dark);
+    border-radius: 15px;
+    box-shadow: 4px 4px 0px var(--text-dark);
+    transition: all 0.2s ease;
+}
+
+.cta-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--text-dark);
+    background-color: var(--yellow);
+    color: var(--text-dark);
+}
+
+/* Music Player */
+.audio-player {
+    background: white;
+    border: 3px solid var(--text-dark);
+    border-radius: 16px;
+    padding: 1rem;
+    max-width: 450px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 4px 4px 0px var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+.album-art {
+    width: 70px;
+    height: 70px;
+    border: 2px solid var(--text-dark);
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.player-controls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.track-title {
+    font-family: var(--font-global);
+    font-size: 0.75rem;
+    font-weight: 900;
+}
+
+.track-artist {
+    font-size: 0.75rem;
+    color: #555;
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+}
+
+.progress-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.timeline {
+    flex: 1;
+    height: 6px;
+    background: #ddd;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--pink);
+    border-radius: 3px;
+}
+
+.timestamp {
+    font-size: 0.65rem;
+    font-weight: 700;
+    font-family: monospace;
+    min-width: 28px;
+}
+
+.play-btn {
+    background: var(--yellow);
+    border: 2px solid var(--text-dark);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px var(--text-dark);
+    font-size: 0.9rem;
+}
+
+/* Profile Picture Stack */
+.hero-graphic-stack {
+    position: relative;
+    height: 520px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sticker {
+    position: absolute;
+    background: var(--bg-card);
+    border: 3px solid var(--text-dark);
+    border-radius: 16px;
+    padding: 16px; /* Generous frame padding */
+    box-shadow: 5px 5px 0px var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Interactive hover wiggle for Homepage Main Sticker (.sticker-1) */
+.sticker-1 {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.sticker-1:hover {
+    /* Slight upward lift and counter-rotation wiggle on hover */
+    transform: rotate(2deg) scale(1.03) translateY(-6px) !important;
+    box-shadow: 8px 8px 0px var(--text-dark) !important;
+}
+
+.sticker img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps image sharp and un-distorted */
+    border: 2px solid var(--text-dark); /* Crisp inner border */
+    border-radius: 8px;
+    display: block;
+}
+
+/* Larger Sticker Dimensions */
+.sticker-1 { 
+    position: relative;
+    width: clamp(300px, 32vw, 420px);  /* Increased from 260px-380px */
+    height: clamp(360px, 40vw, 520px); /* Increased from 320px-460px */
+    transform: rotate(-3deg);
+    z-index: 2;
+}
+
+/* Section Containers & Object Embeds */
+.content-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* Add horizontal padding so rotated cards (-1deg/1deg) don't bleed off-screen */
+    padding: clamp(3.5rem, 6vw, 6rem) clamp(1rem, 3vw, 2.5rem); 
+    box-sizing: border-box;
+    scroll-margin-top: 100px; 
+}
+
+.embedded-page {
+    width: 100%;
+    max-width: 100%; /* Allows frames to fill the available width without pushing past margins */
+    border: none;
+    overflow-x: hidden !important; /* Prevents side-scrolling/clipping */
+    overflow-y: visible !important;
+}
+
+/* Embed Frame Heights */
+/* Specific Embedded Page Heights */
+#njit .embedded-page {
+    min-height: 1400px;
+}
+
+#experience .embedded-page {
+    min-height: 2600px; 
+}
+
+#impact .embedded-page {
+    min-height: 2200px !important; /* Increased height for top card + 4 event cards */
+}
+
+#endurance .embedded-page {
+    min-height: 2200px !important; /* Matches the updated height for 5 cards + spacing */
+}
+
+/* Card & Section Layout Systems */
+.section-container {
+    width: 100%;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.section-number {
+    font-family: var(--font-global);
+    font-weight: 900;
+    font-size: 1.2rem;
+    background: var(--yellow);
+    color: var(--text-dark);
+    padding: 0.3rem 0.8rem;
+    border: 3px solid var(--text-dark);
+    border-radius: 10px;
+    transform: rotate(-4deg);
+}
+
+.section-container h2 {
+    font-family: var(--font-global);
+    font-weight: 900;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: #1A1A1A;
+    text-shadow: 4px 4px 0px #B197FC;
+}
+
+.scrapbook-card {
+    background: var(--bg-card);
+    border: 3px solid var(--text-dark);
+    border-radius: 24px;
+    padding: clamp(1.5rem, 4vw, 3.5rem);
+    box-shadow: 8px 8px 0px var(--text-dark);
+    position: relative;
+    width: 100%;
+}
+
+.card-flex {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+}
+
+/* 2x2 Grid (Experience Section) */
+.grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(2rem, 3.5vw, 3.5rem);
+    width: 100%;
+}
+
+/* Ensure clean vertical separation between the top card and event grid */
+.event-photo-grid {
+    margin-top: clamp(3rem, 5vw, 4.5rem) !important; /* Increased top spacing */
+    clear: both;
+}
+
+.event-photo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Increased space between the image frame and the event text block */
+}
+
+/* Optional: Additional top margin specifically on the event title for extra breathing room */
+.event-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centers the date badge horizontally */
+    text-align: center;      /* Centers the event name text */
+    gap: 0.75rem;            /* Space between name and date badge */
+}
+
+.event-details h4 {
+    font-family: var(--font-global);
+    font-weight: 900;
+    font-size: 1.8rem;      /* Increased from 1.1rem */
+    color: var(--text-dark);
+    line-height: 1.3;
+}
+
+.event-date {
+    display: inline-block;
+    width: fit-content;
+    font-family: var(--font-global);
+    font-weight: 700;
+    font-size: 1.3rem;      /* Increased from 0.75rem */
+    color: black;
+    /*background: var(--pink);*/
+    padding: 0.3rem 0.75rem; /* Slightly roomier badge padding */
+}
+
+/* 5th Card Full Width Rules */
+/* Force 5th Card to stretch 100% across */
+.full-width-card-wrapper {
+    grid-column: 1 / -1 !important; /* Spans across both grid columns if inside a grid */
+    width: 100% !important;
+    margin-top: clamp(2rem, 3.5vw, 3.5rem);
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.scrapbook-card.full-width-card {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.scrapbook-card.full-width-card {
+    width: 100%;
+}
+
+/* Stacked Layout (Impact & Endurance Sections) */
+.stacked-layout {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 3.5vw, 3.5rem);
+    width: 100%;
+}
+
+.scrapbook-card h3 {
+    font-family: var(--font-global);
+    font-weight: 900;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    margin-bottom: 0.5rem;
+}
+
+/* Center all card headings */
+.scrapbook-card h3,
+.scrapbook-card h4,
+.card-text h3,
+.card-text h4 {
+    text-align: center !important;
+    width: 100%;
+}
+
+/* Space between subheadings (.meta) and paragraph text */
+.scrapbook-card .meta,
+.card-text .meta {
+    margin-bottom: 1.25rem !important; /* Adjust gap size here */
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Fallback for card titles directly followed by paragraph text */
+.scrapbook-card h3,
+.scrapbook-card h4 {
+    margin-bottom: 0.75rem;
+}
+
+.scrapbook-card p,
+.card-text p {
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Ensure card header sub-elements (like meta tags/badges) also center properly */
+.scrapbook-card .meta {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scrapbook-card p {
+    font-family: var(--font-global);
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
+    line-height: 1.7;
+    font-weight: 400;
+    color: #222;
+}
+
+/* Photo Frame & Interactive Hover (Slightly Larger) */
+.photo-gallery-row {
+    display: grid;
+    /* Increased minmax width from 150px to 180px for larger frames */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.photo-frame {
+    background: white;
+    border: 5px solid var(--text-dark);
+    border-radius: 18px;
+    padding: 14px 14px 36px 14px; /* Slightly increased padding */
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.15);
+    max-width: 100%;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.photo-frame img {
+    width: 100%;
+    /* Bumped height range up from 160px-240px to 200px-280px */
+    height: clamp(200px, 18vw, 280px);
+    object-fit: cover;
+    border: 3px solid var(--text-dark);
+    border-radius: 10px;
+    background: #eee;
+}
+
+.photo-frame:hover {
+    transform: translateY(-6px) scale(1.03) rotate(0deg) !important;
+    box-shadow: 8px 12px 0px rgba(0, 0, 0, 0.2) !important;
+    cursor: pointer;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(2rem, 4vw, 4rem);
+}
+
+.rotated-left { transform: rotate(-1.2deg); }
+.rotated-right { transform: rotate(1.2deg); }
+
+/* Custom Group Image Override */
+.full-group-img {
+    width: 100%; 
+    height: auto; 
+    max-height: 380px; 
+    object-fit: contain; 
+    border: 3px solid var(--text-dark);
+    border-radius: 10px; 
+}
+
+/* Footer Section */
+.footer {
+    background-color: var(--bg-card);
+    border-top: 3px solid var(--text-dark);
+    padding: 3rem 5% 2rem 5%;
+    font-family: var(--font-global);
+    color: var(--text-dark);
+}
+
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer-brand h4 {
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.footer-col h5 {
+    font-size: 0.9rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    color: var(--pink);
+}
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: 2rem auto 0 auto;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--text-dark);
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 950px) {
+    .hero-container { grid-template-columns: 1fr; text-align: center; }
+    .hero-content { display: flex; flex-direction: column; align-items: center; }
+    .hero-graphic-stack { max-width: 450px; height: 360px; margin: 2rem auto 0 auto; }
+    .card-flex { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 850px) {
+    .grid-2x2 { grid-template-columns: 1fr; }
+    .footer-container { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 630px) {
+    .navbar { padding: 0.6rem 1rem; border-radius: 25px; justify-content: center; width: 95%; }
+    .navbar .logo { display: none; } 
+    .logo-container .logo-subtitle { display: none; }
+    .nav-links { width: 100%; justify-content: space-around; gap: 2px; }
+    .nav-links a { padding: 0.3rem 0.6rem; font-size: 0.75rem; }
+    .content-section { padding: 4rem 3%; }
+    .photo-gallery-row { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 500px) {
+    .footer-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 400px) {
+    html { font-size: 10px; }
+    .navbar { top: 10px; }
+    .nav-links a { padding: 0.2rem 0.4rem; font-size: 0.7rem; }
+    .hero-content h1 { font-size: 1.8rem; }
+    .audio-player { flex-direction: column; align-items: center; text-align: center; padding: 0.8rem; }
+    .player-controls { width: 100%; }
+    .hero-graphic-stack { height: 280px; }
+    .sticker-1 { width: 200px; height: 260px; }
+    .scrapbook-card { padding: 1.2rem; border-radius: 16px; }
+    .photo-gallery-row { grid-template-columns: 1fr; justify-items: center; }
+    .photo-frame { max-width: 200px; }
+}
