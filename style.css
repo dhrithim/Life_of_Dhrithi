@@ -56,24 +56,6 @@ body {
     background-attachment: fixed;
 }
 
-/* Styling the link to act and look like a button */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #0077b5; /* Or match your site's button color */
-  color: #ffffff;
-  text-decoration: none;      /* Removes the underline! */
-  font-weight: bold;
-  border-radius: 6px;         /* Gives it rounded corners */
-  transition: background-color 0.3s ease;
-}
-
-/* Hover effect so it feels interactive */
-.btn:hover {
-  background-color: #005582;
-  color: #ffffff;
-}
-
 /* Navigation Bar */
 .navbar {
     position: fixed;
@@ -714,4 +696,22 @@ body {
     .scrapbook-card { padding: 1.2rem; border-radius: 16px; }
     .photo-gallery-row { grid-template-columns: 1fr; justify-items: center; }
     .photo-frame { max-width: 200px; }
+}
+
+/* Styling the link to act and look like a button */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0077b5; /* Or match your site's button color */
+  color: #ffffff;
+  text-decoration: none;      /* Removes the underline! */
+  font-weight: bold;
+  border-radius: 6px;         /* Gives it rounded corners */
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect so it feels interactive */
+.btn:hover {
+  background-color: #005582;
+  color: #ffffff;
 }
